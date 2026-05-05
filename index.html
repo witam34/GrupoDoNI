@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<!--
+#####################################################
+# LINGUAGEM: HTML
+# Estrutura semântica da página
+#####################################################
+-->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CannaVerde Saúde | Cannabis Medicinal Premium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ===== LOADER ===== -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="leaf-loader">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 10 C50 10 80 30 80 60 C80 80 65 90 50 90 C35 90 20 80 20 60 C20 30 50 10 50 10Z" fill="none" stroke="#4ade80" stroke-width="2"/>
+          <line x1="50" y1="90" x2="50" y2="10" stroke="#4ade80" stroke-width="1.5" stroke-dasharray="4 2"/>
+        </svg>
+      </div>
+      <span class="loader-text">CannaVerde</span>
+    </div>
+  </div>
+
+  <!-- ===== CURSOR PERSONALIZADO ===== -->
+  <div id="cursor"></div>
+  <div id="cursor-follower"></div>
+
+  <!-- ===== PARTÍCULAS DE FUNDO ===== -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- ===== HEADER / NAVEGAÇÃO ===== -->
+  <header id="header">
+    <nav class="nav-container">
+      <a href="#" class="logo">
+        <svg class="logo-icon" viewBox="0 0 40 40">
+          <path d="M20 4 C20 4 34 12 34 26 C34 34 27 38 20 38 C13 38 6 34 6 26 C6 12 20 4 20 4Z"/>
+          <line x1="20" y1="38" x2="20" y2="4" stroke-width="1.2"/>
+          <line x1="14" y1="22" x2="26" y2="22" stroke-width="1"/>
+        </svg>
+        <span>CannaVerde</span>
+        <sup>Saúde</sup>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#sobre" class="nav-link">Sobre</a></li>
+        <li><a href="#produtos" class="nav-link">Produtos</a></li>
+        <li><a href="#beneficios" class="nav-link">Benefícios</a></li>
+        <li><a href="#ciencia" class="nav-link">Ciência</a></li>
+        <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
+        <li><a href="#contato" class="nav-link">Contato</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#produtos" class="btn-primary nav-cta">Ver Produtos</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Menu mobile -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#sobre">Sobre</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#beneficios">Benefícios</a>
+      <a href="#ciencia">Ciência</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero">
+    <div class="hero-content">
+      <div class="hero-badge reveal-up">
+        <span class="badge-dot"></span>
+        Produto Aprovado pela ANVISA
+      </div>
+      <h1 class="hero-title reveal-up">
+        Cannabis Medicinal<br/>
+        <span class="gradient-text">de Alta Precisão</span>
+      </h1>
+      <p class="hero-subtitle reveal-up">
+        Formulações farmacêuticas derivadas de cannabis com pureza certificada,
+        desenvolvidas por especialistas para tratamento personalizado.
+      </p>
+      <div class="hero-actions reveal-up">
+        <a href="#produtos" class="btn-primary btn-large">
+          Explorar Produtos
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#ciencia" class="btn-ghost btn-large">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+          Nossa Ciência
+        </a>
+      </div>
+      <div class="hero-stats reveal-up">
+        <div class="stat">
+          <span class="stat-num" data-target="12000">0</span>
+          <span class="stat-label">Pacientes Atendidos</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num" data-target="98">0</span><span>%</span>
+          <span class="stat-label">Pureza Certificada</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num" data-target="15">0</span>
+          <span class="stat-label">Anos de Pesquisa</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-bottle-wrapper">
+        <div class="hero-glow"></div>
+        <div class="bottle-container">
+          <!-- Frasco SVG animado -->
+          <svg class="bottle-svg" viewBox="0 0 200 420" xmlns="http://www.w3.org/2000/svg">
+            <!-- Tampa -->
+            <rect x="75" y="10" width="50" height="30" rx="6" fill="#1a3a2a"/>
+            <rect x="78" y="8" width="44" height="6" rx="3" fill="#2d5a3d"/>
+            <!-- Pescoço -->
+            <rect x="82" y="38" width="36" height="24" rx="4" fill="#1e4433"/>
+            <!-- Corpo -->
+            <rect x="55" y="60" width="90" height="280" rx="18" fill="#1a3320"/>
+            <!-- Gradiente de brilho -->
+            <rect x="60" y="65" width="20" height="270" rx="10" fill="url(#bottleShine)" opacity="0.15"/>
+            <!-- Líquido interno -->
+            <rect x="62" y="100" width="76" height="230" rx="12" fill="#0d5c2f" opacity="0.7"/>
+            <!-- Nível do líquido animado -->
+            <rect class="liquid-level" x="62" y="160" width="76" height="170" rx="12" fill="#16a34a" opacity="0.4"/>
+            <!-- Rótulo fundo -->
+            <rect x="60" y="130" width="80" height="160" rx="10" fill="#f0fdf4"/>
+            <!-- Logo no rótulo -->
+            <text x="100" y="158" text-anchor="middle" font-family="Inter" font-weight="800" font-size="13" fill="#15803d">CannaVerde</text>
+            <line x1="68" y1="163" x2="132" y2="163" stroke="#bbf7d0" stroke-width="0.8"/>
+            <text x="100" y="178" text-anchor="middle" font-family="Inter" font-weight="600" font-size="9" fill="#166534">ÓLEO CBD FULL SPECTRUM</text>
+            <text x="100" y="193" text-anchor="middle" font-family="Inter" font-weight="900" font-size="22" fill="#15803d">3000</text>
+            <text x="100" y="205" text-anchor="middle" font-family="Inter" font-weight="500" font-size="9" fill="#166534">MG / 30ML</text>
+            <rect x="74" y="212" width="52" height="1" fill="#bbf7d0"/>
+            <text x="100" y="224" text-anchor="middle" font-family="Inter" font-size="7" fill="#4ade80">APROVADO ANVISA</text>
+            <rect x="78" y="228" width="44" height="14" rx="4" fill="#15803d"/>
+            <text x="100" y="238" text-anchor="middle" font-family="Inter" font-weight="600" font-size="6.5" fill="white">Nº REG. 1234567/2024</text>
+            <text x="100" y="260" text-anchor="middle" font-family="Inter" font-size="7.5" fill="#166534">CBD: 100mg/mL</text>
+            <text x="100" y="273" text-anchor="middle" font-family="Inter" font-size="7.5" fill="#166534">THC: &lt; 0,3%</text>
+            <text x="100" y="285" text-anchor="middle" font-family="Inter" font-size="6" fill="#4ade80">Full Spectrum · Orgânico</text>
+            <!-- Detalhe base -->
+            <ellipse cx="100" cy="340" rx="42" ry="6" fill="#0d5c2f" opacity="0.4"/>
+            <defs>
+              <linearGradient id="bottleShine" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="white"/>
+                <stop offset="100%" stop-color="transparent"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <!-- Partículas em órbita -->
+          <div class="orbit-ring orbit-ring-1">
+            <div class="orbit-dot"></div>
+          </div>
+          <div class="orbit-ring orbit-ring-2">
+            <div class="orbit-dot"></div>
+          </div>
+          <div class="orbit-ring orbit-ring-3">
+            <div class="orbit-dot"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Folhas flutuantes -->
+      <div class="floating-leaf leaf-1">🌿</div>
+      <div class="floating-leaf leaf-2">🍃</div>
+      <div class="floating-leaf leaf-3">🌱</div>
+    </div>
+  </section>
+
+  <!-- ===== SOBRE ===== -->
+  <section id="sobre" class="section-sobre">
+    <div class="container">
+      <div class="sobre-grid">
+        <div class="sobre-text reveal-left">
+          <span class="section-tag">Quem Somos</span>
+          <h2>Pioneiros em Cannabis Medicinal no Brasil</h2>
+          <p>A CannaVerde Saúde foi fundada em 2009 por uma equipe de médicos, farmacêuticos e pesquisadores comprometidos com a democratização do acesso à cannabis medicinal de qualidade.</p>
+          <p>Com laboratório próprio certificado ISO 17025 e parcerias com universidades federais, desenvolvemos formulações de alta precisão baseadas em evidências científicas rigorosas.</p>
+          <div class="sobre-features">
+            <div class="feature-item">
+              <div class="feature-icon">🔬</div>
+              <div>
+                <strong>Laboratório Próprio</strong>
+                <span>Certificado ISO 17025 e BPF</span>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">📋</div>
+              <div>
+                <strong>Regulamentação ANVISA</strong>
+                <span>Todos os produtos registrados</span>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">🌍</div>
+              <div>
+                <strong>Cultivo Sustentável</strong>
+                <span>100% orgânico e rastreável</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sobre-cards reveal-right">
+          <div class="card-cert">
+            <div class="cert-icon">✓</div>
+            <strong>ANVISA</strong>
+            <span>Registro Ativo</span>
+          </div>
+          <div class="card-cert">
+            <div class="cert-icon">✓</div>
+            <strong>ISO 17025</strong>
+            <span>Lab Certificado</span>
+          </div>
+          <div class="card-cert">
+            <div class="cert-icon">✓</div>
+            <strong>GMP/BPF</strong>
+            <span>Boas Práticas</span>
+          </div>
+          <div class="card-cert">
+            <div class="cert-icon">✓</div>
+            <strong>Orgânico</strong>
+            <span>IBD Certificado</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUTOS ===== -->
+  <section id="produtos" class="section-produtos">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Nossos Produtos</span>
+        <h2>Formulações de Alta Precisão</h2>
+        <p>Cada produto é desenvolvido com rigor científico e passa por mais de 200 testes de qualidade antes de chegar até você.</p>
+      </div>
+
+      <div class="products-tabs reveal-up">
+        <button class="tab-btn active" data-tab="oleo">Óleos</button>
+        <button class="tab-btn" data-tab="capsulas">Cápsulas</button>
+        <button class="tab-btn" data-tab="topico">Tópico</button>
+      </div>
+
+      <!-- Óleos -->
+      <div class="products-grid tab-content active" id="tab-oleo">
+
+        <div class="product-card reveal-up" data-delay="0">
+          <div class="product-badge">Mais Vendido</div>
+          <div class="product-img-wrapper">
+            <div class="product-img prod-gold">
+              <svg viewBox="0 0 80 160" class="mini-bottle">
+                <rect x="28" y="4" width="24" height="14" rx="3" fill="#1a3a2a"/>
+                <rect x="30" y="17" width="20" height="12" rx="2" fill="#1e4433"/>
+                <rect x="20" y="28" width="40" height="120" rx="10" fill="#1a3320"/>
+                <rect x="23" y="45" width="34" height="96" rx="7" fill="#f0fdf4"/>
+                <text x="40" y="68" text-anchor="middle" font-size="5" font-weight="800" fill="#15803d" font-family="Inter">CannaVerde</text>
+                <text x="40" y="78" text-anchor="middle" font-size="4" fill="#166534" font-family="Inter">CBD GOLD</text>
+                <text x="40" y="92" text-anchor="middle" font-size="11" font-weight="900" fill="#15803d" font-family="Inter">3000</text>
+                <text x="40" y="100" text-anchor="middle" font-size="3.5" fill="#166534" font-family="Inter">MG / 30ML</text>
+              </svg>
+            </div>
+            <div class="product-img-glow glow-gold"></div>
+          </div>
+          <div class="product-info">
+            <span class="product-line">CBD Gold Series</span>
+            <h3>Óleo CBD Full Spectrum 3000mg</h3>
+            <p>Fórmula premium com CBD de amplo espectro, terpenos preservados e nanoencapsulação para biodisponibilidade máxima.</p>
+            <div class="product-specs">
+              <span>CBD: 100mg/mL</span>
+              <span>THC: &lt;0,3%</span>
+              <span>30mL</span>
+            </div>
+            <div class="product-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-count">(847 avaliações)</span>
+            </div>
+            <div class="product-footer">
+              <div class="product-price">
+                <span class="price-label">A partir de</span>
+                <span class="price-value">R$ 389,90</span>
+              </div>
+              <button class="btn-primary btn-add">
+                Saiba Mais
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card reveal-up" data-delay="150">
+          <div class="product-img-wrapper">
+            <div class="product-img prod-blue">
+              <svg viewBox="0 0 80 160" class="mini-bottle">
+                <rect x="28" y="4" width="24" height="14" rx="3" fill="#1a2a3a"/>
+                <rect x="30" y="17" width="20" height="12" rx="2" fill="#1e3344"/>
+                <rect x="20" y="28" width="40" height="120" rx="10" fill="#1a2033"/>
+                <rect x="23" y="45" width="34" height="96" rx="7" fill="#f0f4ff"/>
+                <text x="40" y="68" text-anchor="middle" font-size="5" font-weight="800" fill="#1d4ed8" font-family="Inter">CannaVerde</text>
+                <text x="40" y="78" text-anchor="middle" font-size="4" fill="#1e3a8a" font-family="Inter">CBD SLEEP</text>
+                <text x="40" y="92" text-anchor="middle" font-size="11" font-weight="900" fill="#1d4ed8" font-family="Inter">1500</text>
+                <text x="40" y="100" text-anchor="middle" font-size="3.5" fill="#1e3a8a" font-family="Inter">MG / 30ML</text>
+              </svg>
+            </div>
+            <div class="product-img-glow glow-blue"></div>
+          </div>
+          <div class="product-info">
+            <span class="product-line">CBD Sleep Formula</span>
+            <h3>Óleo CBD + Melatonina 1500mg</h3>
+            <p>Combinação sinérgica de CBD isolado com melatonina natural para qualidade do sono e recuperação noturna.</p>
+            <div class="product-specs">
+              <span>CBD: 50mg/mL</span>
+              <span>Melatonina: 0,21mg</span>
+              <span>30mL</span>
+            </div>
+            <div class="product-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-count">(612 avaliações)</span>
+            </div>
+            <div class="product-footer">
+              <div class="product-price">
+                <span class="price-label">A partir de</span>
+                <span class="price-value">R$ 259,90</span>
+              </div>
+              <button class="btn-primary btn-add">
+                Saiba Mais
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card reveal-up" data-delay="300">
+          <div class="product-badge badge-new">Novo</div>
+          <div class="product-img-wrapper">
+            <div class="product-img prod-purple">
+              <svg viewBox="0 0 80 160" class="mini-bottle">
+                <rect x="28" y="4" width="24" height="14" rx="3" fill="#2a1a3a"/>
+                <rect x="30" y="17" width="20" height="12" rx="2" fill="#3a1e44"/>
+                <rect x="20" y="28" width="40" height="120" rx="10" fill="#2a1a33"/>
+                <rect x="23" y="45" width="34" height="96" rx="7" fill="#fdf0ff"/>
+                <text x="40" y="68" text-anchor="middle" font-size="5" font-weight="800" fill="#7c3aed" font-family="Inter">CannaVerde</text>
+                <text x="40" y="78" text-anchor="middle" font-size="4" fill="#6d28d9" font-family="Inter">CBD NEURO</text>
+                <text x="40" y="92" text-anchor="middle" font-size="11" font-weight="900" fill="#7c3aed" font-family="Inter">5000</text>
+                <text x="40" y="100" text-anchor="middle" font-size="3.5" fill="#6d28d9" font-family="Inter">MG / 30ML</text>
+              </svg>
+            </div>
+            <div class="product-img-glow glow-purple"></div>
+          </div>
+          <div class="product-info">
+            <span class="product-line">CBD Neuro Series</span>
+            <h3>Óleo CBD Neuro 5000mg Alta Potência</h3>
+            <p>Fórmula neurológica de alta concentração com CBD isolado ultrapuro, para condições que exigem doses terapêuticas elevadas.</p>
+            <div class="product-specs">
+              <span>CBD: 166mg/mL</span>
+              <span>THC: 0%</span>
+              <span>30mL</span>
+            </div>
+            <div class="product-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-count">(289 avaliações)</span>
+            </div>
+            <div class="product-footer">
+              <div class="product-price">
+                <span class="price-label">A partir de</span>
+                <span class="price-value">R$ 589,90</span>
+              </div>
+              <button class="btn-primary btn-add">
+                Saiba Mais
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Cápsulas -->
+      <div class="products-grid tab-content" id="tab-capsulas">
+        <div class="product-card reveal-up">
+          <div class="product-img-wrapper">
+            <div class="product-img prod-teal">
+              <div class="capsule-icon">💊</div>
+              <div class="capsule-info">
+                <strong>CBD Caps</strong>
+                <span>25mg × 60 caps</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-line">CBD Softgels</span>
+            <h3>Cápsulas CBD Softgel 25mg</h3>
+            <p>Cápsulas de gelatina mole com CBD em óleo de semente de cânhamo. Dosagem precisa e fácil administração.</p>
+            <div class="product-specs"><span>25mg/cápsula</span><span>60 unidades</span><span>Vegan</span></div>
+            <div class="product-footer">
+              <div class="product-price"><span class="price-value">R$ 219,90</span></div>
+              <button class="btn-primary btn-add">Saiba Mais</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tópico -->
+      <div class="products-grid tab-content" id="tab-topico">
+        <div class="product-card reveal-up">
+          <div class="product-img-wrapper">
+            <div class="product-img prod-orange">
+              <div class="capsule-icon">🧴</div>
+              <div class="capsule-info">
+                <strong>CBD Balm</strong>
+                <span>500mg / 50g</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-line">CBD Tópico</span>
+            <h3>Bálsamo CBD Articular 500mg</h3>
+            <p>Creme de uso tópico com CBD e arnica para alívio localizado de dores articulares e musculares.</p>
+            <div class="product-specs"><span>CBD: 10mg/g</span><span>50g</span><span>+ Arnica</span></div>
+            <div class="product-footer">
+              <div class="product-price"><span class="price-value">R$ 179,90</span></div>
+              <button class="btn-primary btn-add">Saiba Mais</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== BENEFÍCIOS ===== -->
+  <section id="beneficios" class="section-beneficios">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Benefícios Terapêuticos</span>
+        <h2>O que o CBD pode fazer por você</h2>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card reveal-up" data-delay="0">
+          <div class="benefit-icon">🧠</div>
+          <h3>Neurologia</h3>
+          <p>Suporte ao tratamento de epilepsia refratária, esclerose múltipla e doenças neurodegenerativas.</p>
+          <div class="benefit-bar"><div class="bar-fill" data-width="87"></div></div>
+          <span class="benefit-stat">87% de melhora relatada</span>
+        </div>
+        <div class="benefit-card reveal-up" data-delay="100">
+          <div class="benefit-icon">😰</div>
+          <h3>Ansiedade & Estresse</h3>
+          <p>Modulação do sistema endocanabinoide para redução de ansiedade generalizada e episódios de pânico.</p>
+          <div class="benefit-bar"><div class="bar-fill" data-width="91"></div></div>
+          <span class="benefit-stat">91% de melhora relatada</span>
+        </div>
+        <div class="benefit-card reveal-up" data-delay="200">
+          <div class="benefit-icon">💊</div>
+          <h3>Dor Crônica</h3>
+          <p>Propriedades analgésicas e anti-inflamatórias para manejo de dores crônicas e neuropáticas.</p>
+          <div class="benefit-bar"><div class="bar-fill" data-width="83"></div></div>
+          <span class="benefit-stat">83% de melhora relatada</span>
+        </div>
+        <div class="benefit-card reveal-up" data-delay="300">
+          <div class="benefit-icon">😴</div>
+          <h3>Sono</h3>
+          <p>Regulação do ciclo circadiano e melhora na qualidade e duração do sono.</p>
+          <div class="benefit-bar"><div class="bar-fill" data-width="89"></div></div>
+          <span class="benefit-stat">89% de melhora relatada</span>
+        </div>
+        <div class="benefit-card reveal-up" data-delay="400">
+          <div class="benefit-icon">🔥</div>
+          <h3>Inflamação</h3>
+          <p>Ação anti-inflamatória sistêmica com inibição de citocinas pró-inflamatórias.</p>
+          <div class="benefit-bar"><div class="bar-fill" data-width="79"></div></div>
+          <span class="benefit-stat">79% de melhora relatada</span>
+        </div>
+        <div class="benefit-card reveal-up" data-delay="500">
+          <div class="benefit-icon">🤢</div>
+          <h3>Náuseas</h3>
+          <p>Antiemético eficaz para pacientes em quimioterapia e portadores de doenças crônicas.</p>
+          <div class="benefit-bar"><div class="bar-fill" data-width="85"></div></div>
+          <span class="benefit-stat">85% de melhora relatada</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CIÊNCIA ===== -->
+  <section id="ciencia" class="section-ciencia">
+    <div class="container">
+      <div class="ciencia-grid">
+        <div class="ciencia-text reveal-left">
+          <span class="section-tag">Nossa Ciência</span>
+          <h2>Tecnologia que Transforma Vidas</h2>
+          <p>Utilizamos a mais avançada tecnologia de extração CO₂ supercrítico para garantir pureza máxima e preservação dos compostos bioativos.</p>
+          <div class="process-steps">
+            <div class="step">
+              <div class="step-num">01</div>
+              <div class="step-content">
+                <strong>Cultivo Controlado</strong>
+                <p>Plantas cultivadas em ambiente indoor controlado, sem pesticidas, com genética rastreável.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">02</div>
+              <div class="step-content">
+                <strong>Extração CO₂ Supercrítico</strong>
+                <p>Tecnologia de ponta que preserva 100% dos canabinoides e terpenos benéficos.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">03</div>
+              <div class="step-content">
+                <strong>Análise Cromatográfica</strong>
+                <p>Mais de 200 testes por lote incluindo pesticidas, metais pesados e perfil canabinoide.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">04</div>
+              <div class="step-content">
+                <strong>Nanoencapsulação</strong>
+                <p>Tecnologia proprietária que aumenta a biodisponibilidade em até 4x comparado aos óleos convencionais.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ciencia-visual reveal-right">
+          <div class="molecule-container">
+            <svg class="molecule-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+              <!-- Estrutura do CBD simplificada e estilizada -->
+              <g class="molecule-rotate">
+                <circle cx="150" cy="150" r="12" fill="#16a34a" opacity="0.9"/>
+                <circle cx="90" cy="110" r="10" fill="#4ade80" opacity="0.8"/>
+                <circle cx="210" cy="110" r="10" fill="#4ade80" opacity="0.8"/>
+                <circle cx="60" cy="170" r="10" fill="#86efac" opacity="0.7"/>
+                <circle cx="240" cy="170" r="10" fill="#86efac" opacity="0.7"/>
+                <circle cx="90" cy="220" r="10" fill="#4ade80" opacity="0.8"/>
+                <circle cx="210" cy="220" r="10" fill="#4ade80" opacity="0.8"/>
+                <circle cx="150" cy="245" r="10" fill="#16a34a" opacity="0.9"/>
+                <!-- Ligações -->
+                <line x1="150" y1="150" x2="90" y2="110" stroke="#4ade80" stroke-width="2" opacity="0.6"/>
+                <line x1="150" y1="150" x2="210" y2="110" stroke="#4ade80" stroke-width="2" opacity="0.6"/>
+                <line x1="90" y1="110" x2="60" y2="170" stroke="#86efac" stroke-width="2" opacity="0.5"/>
+                <line x1="210" y1="110" x2="240" y2="170" stroke="#86efac" stroke-width="2" opacity="0.5"/>
+                <line x1="60" y1="170" x2="90" y2="220" stroke="#86efac" stroke-width="2" opacity="0.5"/>
+                <line x1="240" y1="170" x2="210" y2="220" stroke="#86efac" stroke-width="2" opacity="0.5"/>
+                <line x1="90" y1="220" x2="150" y2="245" stroke="#4ade80" stroke-width="2" opacity="0.6"/>
+                <line x1="210" y1="220" x2="150" y2="245" stroke="#4ade80" stroke-width="2" opacity="0.6"/>
+                <!-- Anéis secundários -->
+                <circle cx="150" cy="60" r="8" fill="#bbf7d0" opacity="0.5"/>
+                <circle cx="50" cy="90" r="7" fill="#bbf7d0" opacity="0.4"/>
+                <circle cx="250" cy="90" r="7" fill="#bbf7d0" opacity="0.4"/>
+                <line x1="90" y1="110" x2="150" y2="60" stroke="#bbf7d0" stroke-width="1.5" opacity="0.4"/>
+                <line x1="90" y1="110" x2="50" y2="90" stroke="#bbf7d0" stroke-width="1.5" opacity="0.4"/>
+                <line x1="210" y1="110" x2="150" y2="60" stroke="#bbf7d0" stroke-width="1.5" opacity="0.4"/>
+                <line x1="210" y1="110" x2="250" y2="90" stroke="#bbf7d0" stroke-width="1.5" opacity="0.4"/>
+                <!-- Label CBD -->
+                <text x="150" y="154" text-anchor="middle" font-family="Inter" font-weight="700" font-size="8" fill="white">CBD</text>
+              </g>
+              <!-- Pulso externo -->
+              <circle class="pulse-ring" cx="150" cy="150" r="130" fill="none" stroke="#4ade80" stroke-width="1" opacity="0.3"/>
+              <circle class="pulse-ring-2" cx="150" cy="150" r="110" fill="none" stroke="#4ade80" stroke-width="0.5" opacity="0.2"/>
+            </svg>
+            <div class="molecule-label">Molécula CBD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DEPOIMENTOS ===== -->
+  <section id="depoimentos" class="section-depoimentos">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Depoimentos</span>
+        <h2>Histórias que Inspiram</h2>
+        <p>Pacientes reais, resultados verificáveis. Todos os depoimentos são de pacientes com prescrição médica.</p>
+      </div>
+      <div class="testimonials-wrapper">
+        <div class="testimonials-track" id="testimonials-track">
+
+          <div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <p>"Depois de 8 anos com epilepsia refratária e mais de 12 medicamentos sem resultado, o CBD Gold da CannaVerde reduziu minhas crises em 94%. Hoje tenho vida normal."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">MM</div>
+              <div>
+                <strong>Maria Madalena S.</strong>
+                <span>Epilepsia Refratária · São Paulo, SP</span>
+              </div>
+              <div class="testimonial-stars">★★★★★</div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <p>"Uso o CBD Sleep há 6 meses para insônia crônica. Durmo 7-8 horas ininterruptas pela primeira vez em anos. A diferença na minha qualidade de vida é enorme."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">RO</div>
+              <div>
+                <strong>Roberto Oliveira</strong>
+                <span>Insônia Crônica · Curitiba, PR</span>
+              </div>
+              <div class="testimonial-stars">★★★★★</div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <p>"Fibromialgia é uma doença invisível mas extremamente dolorosa. Com o CBD Neuro, consegui reduzir 70% do uso de opioides. Me sinto humana novamente."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">AC</div>
+              <div>
+                <strong>Ana Carolina Lima</strong>
+                <span>Fibromialgia · Belo Horizonte, MG</span>
+              </div>
+              <div class="testimonial-stars">★★★★★</div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <p>"Transtorno de ansiedade generalizada me impedia de trabalhar. O CBD Gold mudou meu nível de cortisol e agora consigo funcionar plenamente no dia a dia."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">FP</div>
+              <div>
+                <strong>Felipe Prado</strong>
+                <span>Ansiedade Generalizada · Florianópolis, SC</span>
+              </div>
+              <div class="testimonial-stars">★★★★★</div>
+            </div>
+          </div>
+
+        </div>
+        <div class="testimonials-controls">
+          <button id="prev-btn" class="ctrl-btn">←</button>
+          <div class="testimonials-dots" id="testimonials-dots"></div>
+          <button id="next-btn" class="ctrl-btn">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BANNER ===== -->
+  <section class="section-cta reveal-up">
+    <div class="container">
+      <div class="cta-box">
+        <div class="cta-glow"></div>
+        <h2>Precisa de uma Consulta Especializada?</h2>
+        <p>Nossa equipe médica oferece consultas online para orientação sobre uso terapêutico de cannabis medicinal.</p>
+        <div class="cta-actions">
+          <a href="#contato" class="btn-primary btn-large">Agendar Consulta Gratuita</a>
+          <a href="tel:08000000000" class="btn-ghost btn-large">📞 0800 000 0000</a>
+        </div>
+        <small>* Consulta sujeita a avaliação médica prévia. Produto sujeito a prescrição médica.</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTATO ===== -->
+  <section id="contato" class="section-contato">
+    <div class="container">
+      <div class="contato-grid">
+        <div class="contato-info reveal-left">
+          <span class="section-tag">Fale Conosco</span>
+          <h2>Entre em Contato</h2>
+          <p>Nosso time de especialistas está disponível para esclarecer suas dúvidas sobre produtos, prescrição e dosagem.</p>
+          <div class="contact-items">
+            <div class="contact-item">
+              <span class="contact-icon">📧</span>
+              <div>
+                <strong>E-mail</strong>
+                <span>contato@cannaverde.com.br</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">📞</span>
+              <div>
+                <strong>Telefone</strong>
+                <span>0800 000 0000 (gratuito)</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">📍</span>
+              <div>
+                <strong>Endereço</strong>
+                <span>Av. Paulista, 1000 – São Paulo, SP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contato-form reveal-right">
+          <form class="contact-form" id="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Nome completo</label>
+                <input type="text" placeholder="João Silva" required />
+              </div>
+              <div class="form-group">
+                <label>E-mail</label>
+                <input type="email" placeholder="joao@email.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Assunto</label>
+              <select>
+                <option value="">Selecione um assunto</option>
+                <option>Dúvidas sobre produtos</option>
+                <option>Prescrição médica</option>
+                <option>Pedidos e entrega</option>
+                <option>Parceria comercial</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Mensagem</label>
+              <textarea rows="4" placeholder="Como podemos ajudá-lo?" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary btn-full">
+              Enviar Mensagem
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <svg class="logo-icon" viewBox="0 0 40 40">
+              <path d="M20 4 C20 4 34 12 34 26 C34 34 27 38 20 38 C13 38 6 34 6 26 C6 12 20 4 20 4Z"/>
+              <line x1="20" y1="38" x2="20" y2="4" stroke-width="1.2"/>
+            </svg>
+            <span>CannaVerde</span><sup>Saúde</sup>
+          </a>
+          <p>Cannabis medicinal com ciência, ética e responsabilidade. Transformando vidas com evidências.</p>
+          <div class="social-links">
+            <a href="#" class="social-btn" aria-label="Instagram">IG</a>
+            <a href="#" class="social-btn" aria-label="Facebook">FB</a>
+            <a href="#" class="social-btn" aria-label="YouTube">YT</a>
+            <a href="#" class="social-btn" aria-label="LinkedIn">LI</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Produtos</h4>
+          <ul>
+            <li><a href="#">CBD Gold 3000mg</a></li>
+            <li><a href="#">CBD Sleep 1500mg</a></li>
+            <li><a href="#">CBD Neuro 5000mg</a></li>
+            <li><a href="#">Cápsulas Softgel</a></li>
+            <li><a href="#">Bálsamo Tópico</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="#">Nossa Ciência</a></li>
+            <li><a href="#">Certificações</a></li>
+            <li><a href="#">Blog Científico</a></li>
+            <li><a href="#">Trabalhe Conosco</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal & Suporte</h4>
+          <ul>
+            <li><a href="#">Como Comprar</a></li>
+            <li><a href="#">Regulamentação</a></li>
+            <li><a href="#">Política de Privacidade</a></li>
+            <li><a href="#">Termos de Uso</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 CannaVerde Saúde LTDA · CNPJ: 00.000.000/0001-00 · ANVISA Reg. nº 1234567/2024</p>
+        <p class="disclaimer">* Produto sujeito a prescrição médica. Não indicado para menores de 18 anos. Mantenha fora do alcance de crianças.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast de notificação -->
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
